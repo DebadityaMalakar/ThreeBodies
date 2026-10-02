@@ -27,6 +27,14 @@ npm run build
 
 The build runs TypeScript checking before producing the Vite bundle in `dist/`.
 
+## GitHub Pages
+
+The repository deploys automatically from `main` through [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml).
+
+Live site: <https://debadityamalakar.github.io/ThreeBodies/>
+
+In the repository settings, set **Pages > Build and deployment > Source** to **GitHub Actions**. A push to `main` then builds and publishes the site.
+
 ## Controls
 
 The HUD provides:
