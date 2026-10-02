@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>threebodies</title>
+  </head>
+  <body>
+    <div id="app">
+      <section class="hud" aria-label="Precision controls">
+        <label class="hud-label" for="scenario-select">STAGE</label>
+        <div class="stage-controls">
+          <select id="scenario-select" data-scenario aria-label="Choose simulation stage">
+            <option value="1">01 Figure-8</option>
+            <option value="2">02 Butterfly I</option>
+            <option value="3">03 Moth I</option>
+            <option value="4">04 Yin-Yang I</option>
+            <option value="5">05 Yarn</option>
+            <option value="6">06 Lagrange triangle</option>
+            <option value="7">07 Pythagorean</option>
+            <option value="8">08 Star / planet / moon</option>
+            <option value="9">09 Two stars / planet</option>
+            <option value="10">10 Chaos</option>
+          </select>
+          <button class="tour-button" data-tour type="button" aria-pressed="true">AUTO TOUR: ON</button>
+        </div>
+        <div class="hud-label">NUMERIC MODE</div>
+        <div class="precision-toggle" role="group" aria-label="Choose numeric precision">
+          <button class="precision-option" data-precision="FP16" type="button">FP16</button>
+          <button class="precision-option active" data-precision="FP32" type="button">FP32</button>
+          <button class="precision-option" data-precision="FP64" type="button">FP64</button>
+        </div>
+        <div class="precision-note" data-precision-note>slow / precise</div>
+        <div class="fps-readout" data-fps>0 FPS</div>
+      </section>
+      <canvas class="tbdp"></canvas>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

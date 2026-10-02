@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap');
+
+:root {
+  font-family: 'DM Mono', monospace;
+  color: #edf5ff;
+  background: #050911;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #app {
+  width: 100%;
+  min-width: 320px;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  background: radial-gradient(circle at 50% 45%, #101c2c 0, #070d18 42%, #03060c 100%);
+}
+
+#app {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.hud {
+  position: absolute;
+  z-index: 2;
+  top: clamp(20px, 4vw, 38px);
+  right: clamp(20px, 4vw, 38px);
+  min-width: 182px;
+  padding: 10px;
+  border: 1px solid rgba(157, 196, 232, 0.28);
+  background: rgba(5, 9, 17, 0.84);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+}
+
+.hud-label, .precision-note { color: #8da4bd; font-size: 10px; letter-spacing: 0.08em; }
+.precision-note.warning { color: #ffbf78; }
+.fps-readout { margin-top: 8px; color: #f8fbff; font: 500 13px 'DM Mono', monospace; }
+.stage-controls { display: grid; gap: 5px; margin: 6px 0 12px; }
+.stage-controls select, .tour-button { width: 100%; min-height: 36px; border: 1px solid rgba(157, 196, 232, 0.25); color: #b5c8db; background: rgba(255, 255, 255, 0.04); font: 500 11px 'DM Mono', monospace; }
+.stage-controls select { padding: 0 8px; }
+.stage-controls select:focus-visible, .tour-button:focus-visible { border-color: #8ddcff; outline: 2px solid rgba(141, 220, 255, 0.25); outline-offset: 1px; }
+.tour-button { cursor: pointer; }
+.tour-button.active { border-color: #8ddcff; color: #06101b; background: #8ddcff; }
+.precision-toggle { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin: 7px 0 6px; }
+.precision-option { min-width: 48px; min-height: 36px; border: 1px solid rgba(157, 196, 232, 0.25); color: #b5c8db; background: rgba(255, 255, 255, 0.04); font: 500 12px 'DM Mono', monospace; cursor: pointer; }
+.precision-option:hover, .precision-option:focus-visible { border-color: #8ddcff; color: #fff; outline: none; }
+.precision-option.active { border-color: #8ddcff; color: #06101b; background: #8ddcff; }
+
+.tbdp {
+  display: block;
+  width: min(100%, 1280px);
+  height: auto;
+  max-height: calc(100svh - 48px);
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  border: 1px solid rgba(157, 196, 232, 0.25);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.03), 0 22px 80px rgba(0, 0, 0, 0.6);
+  background: #050911;
+}
+
+@media (max-width: 640px) {
+  #app { padding: 10px; }
+  .tbdp { max-height: calc(100svh - 20px); }
+  .hud { top: 20px; right: 20px; transform: scale(0.86); transform-origin: top right; }
+}
+
+@media (min-width: 1600px) and (min-height: 900px) {
+  #app { padding: 40px; }
+  .tbdp { max-width: none; max-height: none; }
+}
